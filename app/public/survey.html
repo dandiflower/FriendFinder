@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Friend Finder</title>
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+    <form>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter name">
+        </div>
+        <div class="form-group">
+            <label for="photo">Picture</label>
+            <input type="text" class="form-control" id="photo" placeholder="Enter link to your online photo">
+        </div>
+
+
+    
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Question 1: </label>
+        <select class="form-control" id="exampleFormControlSelect1">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    </div>
+    <!-- <script>
+        function createCard(data, num, classStr, idStr) {
+            var tempDiv = $("<div>");
+            tempDiv.addClass("row")
+            tempDiv.html(
+                "<div class='col'>" +
+                "<div class='card m-4 " + classStr + "' id='" + idStr + "'>" +
+                "<div class='card-header'>" +
+                "<h2>" +
+                "<button class='btn-primary pr-2 pl-2'>" + (num + 1) + "</button> " + data.name +
+                "<button class='btn-danger pr-2 pl-2 pt-1 float-right delete-reservation' data-res='" + num +
+                "'><h3>Delete</h3></button>" +
+                "</h2>" +
+                "</div>" +
+                "<div class='card-text p-3'>" +
+                "<h3>Phone Number: " + data.phone + " </h3>" +
+                "<h3>Email: " + data.email + "</h3>" +
+                "</div>" +
+                "</div>" +
+                "</div>"
+            )
+            return tempDiv;
+        }
+
+        function displayReservations() {
+            $.get("/api/reservations", function (data) {
+                for (var i = 0; i < Math.min(5, data.length); i++) {
+                    var currRes = createCard(data[i], i, "reservation", "queue-" + i);
+                    $("#current-reservations").append(currRes)
+                }
+
+                for (var i = 5; i < data.length; i++) {
+                    var currWait = createCard(data[i], i, "waiting-list", "queue-" + i);
+                    $("#waiting-list").append(currWait)
+                }
+            })
+        } -->
+<!-- 
+        // $(document).on("click", ".delete-reservation", function(event){
+        //     var deleteIndex = parseInt($(this).data("res"));
+        //     $.delete("/api/reservations/" + deleteIndex).then(function(data){
+        //         $("#reservation-message").text(data.name + "'s reservation deleted");
+        //         displayReservations();
+        //     })
+        // })
+
+        displayReservations();
+    </script> -->
+
+</body>
+
+</html>
