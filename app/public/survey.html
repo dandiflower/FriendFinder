@@ -127,12 +127,17 @@
             </select>
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" id="submit-btn">Submit</button>
     </form>
     </div>
 
-    <script>
-    /// logic
+<!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS SENT TO OUR SERVER -->
+    <script type="text/JavaScript">
+
+// In this code below we create the Front-end JavaScript which "POSTS" our form data to our express server.
+// In essence, when the user hits submit, jQuery grabs all of the fields then sends a post request to our api
+// Our api recognizes the route (/api/friends)... and then runs the associated code (found in apiRoutes.js).
+// In this case the associated code "saves" the data to the friends.js file
 
         $("#submit-btn").on("click", function (event) {
             event.preventDefault();
@@ -153,11 +158,11 @@
                     $("#exampleFormControlSelect10").val(),
                 ]
             };
-            $("#name").val("");
-            $("#photo").val("");
-            $("#scores").val("");
+            console.log(newFriend);
 
-            $.post("/api/survey", newFriend)
+//we give it a URL, we give it the object we want to send, then we have a "callback".
+
+            $.post("/api/friends", newFriend)
                 .then(function (data) {
                     console.log(data);
 
@@ -165,56 +170,6 @@
         });
 
     </script>
-
-
-    <!-- <script>
-        function createCard(data, num, classStr, idStr) {
-            var tempDiv = $("<div>");
-            tempDiv.addClass("row")
-            tempDiv.html(
-                "<div class='col'>" +
-                "<div class='card m-4 " + classStr + "' id='" + idStr + "'>" +
-                "<div class='card-header'>" +
-                "<h2>" +
-                "<button class='btn-primary pr-2 pl-2'>" + (num + 1) + "</button> " + data.name +
-                "<button class='btn-danger pr-2 pl-2 pt-1 float-right delete-reservation' data-res='" + num +
-                "'><h3>Delete</h3></button>" +
-                "</h2>" +
-                "</div>" +
-                "<div class='card-text p-3'>" +
-                "<h3>Phone Number: " + data.phone + " </h3>" +
-                "<h3>Email: " + data.email + "</h3>" +
-                "</div>" +
-                "</div>" +
-                "</div>"
-            )
-            return tempDiv;
-        }
-
-        function displayReservations() {
-            $.get("/api/reservations", function (data) {
-                for (var i = 0; i < Math.min(5, data.length); i++) {
-                    var currRes = createCard(data[i], i, "reservation", "queue-" + i);
-                    $("#current-reservations").append(currRes)
-                }
-
-                for (var i = 5; i < data.length; i++) {
-                    var currWait = createCard(data[i], i, "waiting-list", "queue-" + i);
-                    $("#waiting-list").append(currWait)
-                }
-            })
-        } -->
-<!-- 
-        // $(document).on("click", ".delete-reservation", function(event){
-        //     var deleteIndex = parseInt($(this).data("res"));
-        //     $.delete("/api/reservations/" + deleteIndex).then(function(data){
-        //         $("#reservation-message").text(data.name + "'s reservation deleted");
-        //         displayReservations();
-        //     })
-        // })
-
-        displayReservations();
-    </script> -->
 
 </body>
 

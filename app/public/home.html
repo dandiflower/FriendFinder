@@ -16,28 +16,35 @@
     
 <!-- <div id="background"></div> -->
 
-<div class="picture">
-    <div class="container">
-        <div class="row">
-            <div class="card col-sm">
-                <h1 class="display-4">Friend Finder</h1>
-                <p class="lead">Answer a few basic questions. Then find the friend with the greatest compatibility!</p>
-                <button type="submit" class="btn btn-primary">Start Survey!</button>
-            </div>
-            <div class="col-sm"></div>
-            <div class="col-sm"></div>
-        </div>   
+<div class="picture col-lg">
+  
+    <div class="row">
+        <div class="card col-sm">
+            <h1 class="display-4">Friend Finder</h1>
+            <p class="lead">Answer a few basic questions. Then find the friend with the greatest compatibility!</p>
+            <a href="/survey"><button type="submit" class="btn btn-primary">Start Survey!</button></a>
+        </div>
+        <div class="col-sm"></div>
+        <div class="col-sm"></div>
+       
+
+        <div class="footer" id="links">
+            <a href="/api/friends">API Friends List</a>
+            <p> &nbsp|&nbsp </p>
+            <a href="https://github.com/afhaque/friendfinder">Github Repo</a>
+        </div>
     </div>
 </div>
-<div class="row">
-<a href="/api/friends">API Friends List</a>
-<p> &nbsp|&nbsp </p>
-<a href="https://github.com/afhaque/friendfinder">Github Repo</a>
-</div>
 
+<!-- CSS Style -->
 
 <style>
 
+    #links {
+        position: fixed;
+        margin-left: 40%;
+        margin-top: 700px;
+    }
 
     .picture {
 
@@ -49,6 +56,7 @@
         }
 
     .card {
+        margin-left: 10%;
         margin-top: 30%;
         padding: 2%;
         opacity: .95;
@@ -70,6 +78,8 @@
     }
 
 </style>
+
+
 
 </body>
 </html>

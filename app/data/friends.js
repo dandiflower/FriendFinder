@@ -1,3 +1,19 @@
+// ===============================================================================
+// DATA
+// Below data will hold all of the reserved tables.
+// Initially we just set it equal to a "dummy" customer.
+// But you could have it be an empty array as well.
+// ===============================================================================
+
+var friendArray = [{
+    name: "Joe",
+    photo: "https://www.liveaction.org/news/wp-content/uploads/2013/09/000friends.jpg",
+    scores: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+}];
+
+// Note how we export the array. This makes it accessible to other files using require.
+module.exports = friendArray;
+
 // You should save your application 's data inside of app/data/friends.js as an array of objects. Each of these objects should roughly follow the format below.
 
 
