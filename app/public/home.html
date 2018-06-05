@@ -13,24 +13,62 @@
 </head>
 
 <body>
+    
+<!-- <div id="background"></div> -->
 
-<div class="jumbotron jumbotron-fluid">
+<div class="picture">
     <div class="container">
-        <h1 class="display-4">Fluid jumbotron</h1>
-        <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+        <div class="row">
+            <div class="card col-sm">
+                <h1 class="display-4">Friend Finder</h1>
+                <p class="lead">Answer a few basic questions. Then find the friend with the greatest compatibility!</p>
+                <button type="submit" class="btn btn-primary">Start Survey!</button>
+            </div>
+            <div class="col-sm"></div>
+            <div class="col-sm"></div>
+        </div>   
     </div>
 </div>
+<div class="row">
+<a href="/api/friends">API Friends List</a>
+<p> &nbsp|&nbsp </p>
+<a href="https://github.com/afhaque/friendfinder">Github Repo</a>
+</div>
+
 
 <style>
-    body {
-    background-image: url("images/aziz-acharki-416318-unsplash.jpg");
-    background-repeat:no-repeat;
-    background-size:contain;
-    background-position:center;
-    height: 120px;
-    width: 20%;
-        /* background-color: #cccccc; */
+
+
+    .picture {
+
+        background-image: url("images/aziz-acharki-416318-unsplash.jpg");
+        background-repeat:no-repeat;
+        background-size:contain;
+        background-position:top;
+        height: 1000px;
+        }
+
+    .card {
+        margin-top: 30%;
+        padding: 2%;
+        opacity: .95;
     }
+
+    body {
+        background-color: rgba(172, 214, 238, 0.541);
+    }
+
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: white;
+        color: blue;
+        text-align: center;
+        margin-top: 0%;
+    }
+
 </style>
 
 </body>

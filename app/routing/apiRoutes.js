@@ -18,7 +18,7 @@ module.exports = function (app) {
         response.json(newRes);
     });
 
-// Is this where the friend sorting/matching logic goes????
+
 
     // app.delete("/api/friends", function (request, response) {
     //     while (queue.length > 0) {

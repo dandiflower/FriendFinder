@@ -13,7 +13,4 @@ module.exports = function (app) {
         res.sendFile(path.join(__dirname, "../public/survey.html"));
     });
 
-    // app.get("/view-res", function (req, res) {
-    //     res.sendFile(path.join(__dirname, "../public/view-reservations.html"));
-    // });
 };
