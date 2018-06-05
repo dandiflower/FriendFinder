@@ -1,6 +1,6 @@
 var express = require("express");
 var bodyParser = require("body-parser");
-// var path = require("path");
+var path = require("path");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -10,8 +10,8 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-require("../routing/apiRoutes.js")(app);
-require("../routing/htmlRoutes.js")(app);
+require(".app/routing/apiRoutes.js")(app);
+require(".app/routing/htmlRoutes.js")(app);
 // var func = require("./routes/html.js");
 // func(app);
 
