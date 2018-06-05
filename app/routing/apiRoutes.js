@@ -2,7 +2,7 @@
 // LOAD DATA
 // We are linking our routes to a series of "data" sources.The apiRoutes.js file should contain two routes:
 
-var friendData = require("../data/friendData");
+var friendData = require("../data/friends");
 var path = require("path");
 // ===============================================================================
 // ROUTING
