@@ -9,39 +9,24 @@ var friendArray = [
     {
     name: "Joe",
     photo: "https://www.liveaction.org/news/wp-content/uploads/2013/09/000friends.jpg",
-    scores: [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10' ],
+    scores: ['1', '2', '3', '4', '5', '1', '2', '3', '4', '5' ],
 },
 {
     name: "Sam",
     photo: "https://www.lovedignity.com/wp-content/uploads/2016/07/friendship.jpg",
-    scores: [ '10', '9', '8', '7', '6', '5', '4', '3', '2', '1' ],
-    }
+    scores: ['5', '4', '3', '2', '1', '5', '4', '3', '2', '1'],
+},
+{
+    name: "Lucy",
+    photo: "https://image.freepik.com/free-photo/cute-cat-picture_1122-449.jpg",
+    scores: [ '3', '3', '3', '3', '3', '3', '3', '3', '3', '3'],
+}
 ];
 
 // Note how we export the array. This makes it accessible to other files using require.
 module.exports = friendArray;
 
-// You should save your application 's data inside of app/data/friends.js as an array of objects. Each of these objects should roughly follow the format below.
-
-
-// {
-//     "name": "Ahmed",
-//     "photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
-//     "scores": [
-//         5,
-//         1,
-//         4,
-//         4,
-//         5,
-//         1,
-//         2,
-//         5,
-//         4,
-//         1
-//     ]
-// }
-
-// Determine the user 's most compatible friend using the following as a guide:
+// Determines the user 's most compatible friend
 
 
 

@@ -18,8 +18,34 @@ module.exports = function (app) {
     app.post("/api/friends", function (request, response) {
         var newFriend = request.body;
         console.log(newFriend);
+        
+        // response.json(newFriend);
+        var matchingFriend;
+
+        //math to compare here ; loop through friendData and compare newFriend
+        function compare(obj, targetObj) {
+            var totalDiff = 0;  
+            for (var i = 0; i < 10; i++) {
+                totalDiff += Math.abs(parseInt(obj.scores[i]) - parseInt(targetObj.scores[i]));
+            }
+            return totalDiff;
+        }
+
+        var minIndex = 0;
+        var minDiff = 50;
+        for (var i=0; i < friendData.length; i++) {
+            var diff = compare(newFriend, friendData[i]);
+            if (diff < minDiff){
+                minDiff = diff;
+                minIndex = i;
+            }
+        }
+        matchingFriend = friendData[minIndex];
+
         friendData.push(newFriend);
+        // response.json(matchingFriend);
         response.json(newFriend);
+
     });
 
 

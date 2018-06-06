@@ -25,7 +25,7 @@
         </div>
         <div class="form-group">
             <label for="photo">Picture</label>
-            <input type="text" class="form-control" id="photo" placeholder="Enter https://link to your online photo">
+            <input type="text" class="form-control" id="photo" placeholder="Enter https:// link to your online photo">
         </div> 
         <div class="form-group">
             <label for="exampleFormControlSelect1">Question 1: How naughty are you?</label>
@@ -213,7 +213,9 @@ label {
 
             $.post("/api/friends", newFriend)
                 .then(function (data) {
-                    // console.log(data);
+                    console.log(data);
+
+                      $("#friendDataName").text(data);
                 });
 
     // Run Queries
@@ -232,41 +234,42 @@ label {
                 // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
         $.ajax({ url: currentURL + "/api/friends", method: "GET" }) 
             .then(function(friendData) {
-                console.log(friendData);
-                    var scoreObject = [];     
-                    $.each(friendData, function(key, value) { 
-                        ("name").push(scoreObject(key))
-                        for (var i = 0; i < 11; i++) {
-                            console.log(scores[i]);
-                            }
+                var currentUser = friendData.score;
+                
+                    // var scoreObject = [];     
+                    // $.each(friendData, function() {
+                    //     $.each(this, function (key, value) {               
+                    //         for (var i = 0; i < value.length; i++) {
+                    //             friendData.push(key.value);
+                    //             return scoreObject;
+                    //         }
+                    //         console.log(friendData(key, "scores"));
                         
-                    });
+                    //     });
+                    // Here we then push the friendData to the modul
+                  
+                    // });
+                    // console.log(currentUser)
+            });        
+        };
 
-var json = [ 
- { 'name': '#f00' },
- { 'imag': '#0f0' },
- { 'scores': ['k', 'l'] }
-];
 
-$.each(json, function () {
-   $.each(this, function (name, value) {
-      console.log(name + '=' + value);
-   });
-});
+// var json = [ 
+//  { 'name': '#f00' },
+//  { 'imag': '#0f0' },
+//  { 'scores': ['k', 'l'] }
+// ];
+
+// $.each(json, function () {
+//    $.each(this, function (name, value) {
+//       console.log(name + '=' + value);
+//    });
+// });
 
         // Here we are logging the URL so we have access to it for troubleshooting
         //   console.log("------------------------------------");
         //   console.log("URL: " + currentURL + "/api/friends");
         //   console.log("------------------------------------");
-
-          // Here we then push the friendData to the modul
-          $("#friendDataName").text(friendData[3].name);
-
-
-
-    });
-};        
-
 
     </script>
 
