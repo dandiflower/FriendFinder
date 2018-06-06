@@ -150,13 +150,10 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body">HELLO!!!
 <!-- friendData -->
-                <div id="friendData">
-
-
-
-                </div>
+                <div id="friendDataName">photo lives here</div>
+                <div id="friendDataImage">photo lives here</div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
@@ -218,7 +215,11 @@ label {
                 .then(function (data) {
                     // console.log(data);
                 });
-        });
+
+    // Run Queries
+    runFriendQuery();
+
+});
 
 // jQuery is used to "download" the data from our server and then display this content
 
@@ -231,28 +232,41 @@ label {
                 // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
         $.ajax({ url: currentURL + "/api/friends", method: "GET" }) 
             .then(function(friendData) {
+                console.log(friendData);
+                    var scoreObject = [];     
+                    $.each(friendData, function(key, value) { 
+                        ("name").push(scoreObject(key))
+                        for (var i = 0; i < 11; i++) {
+                            console.log(scores[i]);
+                            }
+                        
+                    });
+
+var json = [ 
+ { 'name': '#f00' },
+ { 'imag': '#0f0' },
+ { 'scores': ['k', 'l'] }
+];
+
+$.each(json, function () {
+   $.each(this, function (name, value) {
+      console.log(name + '=' + value);
+   });
+});
 
         // Here we are logging the URL so we have access to it for troubleshooting
-          console.log("------------------------------------");
-          console.log("URL: " + currentURL + "/api/friends");
-          console.log("------------------------------------");
+        //   console.log("------------------------------------");
+        //   console.log("URL: " + currentURL + "/api/friends");
+        //   console.log("------------------------------------");
 
-          // Here we then log the friendData to console, where it will show up as an object.
-          console.log(friendData);
-          console.log("------------------------------------");
+          // Here we then push the friendData to the modul
+          $("#friendDataName").text(friendData[3].name);
 
-            // Loop through and display each of the customers
-            for (var i = 0; i < friendData.length; i++) {
-                console.log(parseInt(newFriend.scores[i]));
-            }
 
-            $("#friendData").text(friendData[0].name.val());
 
-        });
-    }
-        
-    // Run Queries
-    runFriendQuery();
+    });
+};        
+
 
     </script>
 

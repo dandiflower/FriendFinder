@@ -9,12 +9,12 @@ var friendArray = [
     {
     name: "Joe",
     photo: "https://www.liveaction.org/news/wp-content/uploads/2013/09/000friends.jpg",
-    scores: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+    scores: [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10' ],
 },
 {
     name: "Sam",
     photo: "https://www.lovedignity.com/wp-content/uploads/2016/07/friendship.jpg",
-    scores: [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ],
+    scores: [ '10', '9', '8', '7', '6', '5', '4', '3', '2', '1' ],
     }
 ];
 
