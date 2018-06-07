@@ -135,6 +135,7 @@
 <br>
     </div>
 <br>
+<a href="/api/friends">API Friends List</a>
 <br>
 
 <!-- Modal -->
@@ -211,14 +212,6 @@ label {
             };
             // console.log(newFriend);
 
-//we give it a URL, we give it the object we want to send, then we have a "callback".
-
-// $.post("/api/friends", newFriend)
-//     .then(function (data) {
-//         // console.log(data);
-
-//     });
-
 // jQuery is used to "download" the data from our server and then display this content
 
     function runFriendQuery() {
@@ -266,7 +259,13 @@ label {
             // Run Queries
     runFriendQuery();
         
+//we give it a URL, we give it the object we want to send, then we have a "callback".
 
+$.post("/api/friends", newFriend)
+    .then(function (data) {
+        // console.log(data);
+
+    });
 
 });
 
