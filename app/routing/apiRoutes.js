@@ -17,7 +17,7 @@ module.exports = function (app) {
 // A POST routes / api / friends.This will be used to handle incoming survey results.This route will also be used to handle the compatibility logic.
     app.post("/api/friends", function (request, response) {
         var newFriend = request.body;
-        console.log(newFriend);
+        // console.log(newFriend);
         
         // response.json(newFriend);
         var matchingFriend;
@@ -41,11 +41,13 @@ module.exports = function (app) {
             }
         }
         matchingFriend = friendData[minIndex];
+        // console.log(matchingFriend);
 
         friendData.push(newFriend);
         // response.json(matchingFriend);
         response.json(newFriend);
 
+        
     });
 
 

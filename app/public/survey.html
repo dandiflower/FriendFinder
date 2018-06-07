@@ -135,31 +135,31 @@
 <br>
 <br>
 
-<!-- Button trigger modal
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Launch demo modal
-</button> -->
-
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Best Match!</h5>
+                <h5 class="modal-title" id="exampleModalCenterTitle">You Should Be Friends With ... !!!</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">HELLO!!!
-<!-- friendData -->
-                <div id="friendDataName">photo lives here</div>
-                <div id="friendDataImage">photo lives here</div>
+            <div class="modal-body">
+                <!-- friendData -->
+                
+                <h5 id="friendDataName"></h5>
+                <img src="" alt="Smiley face" id="friendDataImage" height="200">
+                
+            </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
 </div>
+
+<!--  -->
 
 <style>
 h1 { border-bottom: 1px solid black }
@@ -211,17 +211,11 @@ label {
 
 //we give it a URL, we give it the object we want to send, then we have a "callback".
 
-            $.post("/api/friends", newFriend)
-                .then(function (data) {
-                    console.log(data);
+// $.post("/api/friends", newFriend)
+//     .then(function (data) {
+//         // console.log(data);
 
-                      $("#friendDataName").text(data);
-                });
-
-    // Run Queries
-    runFriendQuery();
-
-});
+//     });
 
 // jQuery is used to "download" the data from our server and then display this content
 
@@ -234,42 +228,47 @@ label {
                 // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
         $.ajax({ url: currentURL + "/api/friends", method: "GET" }) 
             .then(function(friendData) {
-                var currentUser = friendData.score;
+        
+        // var newFriend = data;
+        console.log(newFriend);
+                        // response.json(newFriend);
+       
+
+        //math to compare here ; loop through friendData and compare newFriend
+        function compare(obj, targetObj) {
+            var totalDiff = 0;  
+            for (var i = 0; i < 10; i++) {
+                totalDiff += Math.abs(parseInt(obj.scores[i]) - parseInt(targetObj.scores[i]));
+            }
+            return totalDiff;
+        }
+
+        var minIndex = 0;
+        var minDiff = 50;
+        for (var i=0; i < friendData.length; i++) {
+            var diff = compare(newFriend, friendData[i]);
+            if (diff < minDiff){
+                minDiff = diff;
+                minIndex = i;
+            }
+        }
+        matchingFriend = friendData[minIndex];
+        console.log(matchingFriend);
                 
-                    // var scoreObject = [];     
-                    // $.each(friendData, function() {
-                    //     $.each(this, function (key, value) {               
-                    //         for (var i = 0; i < value.length; i++) {
-                    //             friendData.push(key.value);
-                    //             return scoreObject;
-                    //         }
-                    //         console.log(friendData(key, "scores"));
-                        
-                    //     });
-                    // Here we then push the friendData to the modul
-                  
-                    // });
-                    // console.log(currentUser)
+ $("#friendDataName").text(matchingFriend.name);
+ $("#friendDataImage").attr("src", matchingFriend.photo);
+
             });        
         };
 
+            // Run Queries
+    runFriendQuery();
+        
 
-// var json = [ 
-//  { 'name': '#f00' },
-//  { 'imag': '#0f0' },
-//  { 'scores': ['k', 'l'] }
-// ];
 
-// $.each(json, function () {
-//    $.each(this, function (name, value) {
-//       console.log(name + '=' + value);
-//    });
-// });
+});
 
-        // Here we are logging the URL so we have access to it for troubleshooting
-        //   console.log("------------------------------------");
-        //   console.log("URL: " + currentURL + "/api/friends");
-        //   console.log("------------------------------------");
+
 
     </script>
 
